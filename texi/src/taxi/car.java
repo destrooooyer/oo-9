@@ -21,7 +21,8 @@ public class car
 	private int dest_y;
 	private int passenger_x;
 	private int passenger_y;
-	private Vector<Pair<Integer, Integer>> path;
+	private Vector<Integer> path_x;
+	private Vector<Integer> path_y;
 	private int path_iter;
 	private map _map;
 	private boolean stopped2serving;
@@ -125,19 +126,20 @@ public class car
 		this.reputation = 0;
 		this.stop_count = 0;
 		this.wait_count = 0;
-		path = new Vector<Pair<Integer, Integer>>();
 		this._x = new Random().nextInt(80);
 		this._y = new Random().nextInt(80);
 		this.path_iter = -1;    //path的指针，小于0时做flag：-1:一般/-2:
 		this._map = _map;
 		this.stopped2serving = false;
+		this.path_x=new Vector<Integer>();
+		this.path_y=new Vector<Integer>();
 	}
 
 	/**
 	 * requires: 无
 	 * modifies: 无
 	 * effects: 根据车当前的位置，车的状态，地图，以及道路的流量确定车的位置，并将_x, _y更新为新的坐标，
-	 * path发生了改变，移动之后，调用了_map的add_traffic，使记录的流量值发生了改变
+	 * path_x,path_y发生了改变，移动之后，调用了_map的add_traffic，使记录的流量值发生了改变
 	 */
 	public void move()
 	{
@@ -146,7 +148,7 @@ public class car
 			case status_kinds.serving:
 			{
 //				System.out.println(status+" "+_x+" "+_y+" "+this.reputation);
-//				if (path.size() != 0)
+//				if (path_x.size() != 0)
 //				{
 //					_x = path.get(path_iter).getKey();
 //					_y = path.get(path_iter).getValue();
@@ -167,33 +169,33 @@ public class car
 					{
 						bo_temp[0] = true;
 						find_shortest_path(_x - 1, _y, dest_x, dest_y);
-						path_len[0] = path.size();
-						if (path.size() < min)
-							min = path.size();
+						path_len[0] = path_x.size();
+						if (path_x.size() < min)
+							min = path_x.size();
 					}
 					if (_map.is_down_connected(_x, _y))
 					{
 						bo_temp[1] = true;
 						find_shortest_path(_x + 1, _y, dest_x, dest_y);
-						path_len[1] = path.size();
-						if (path.size() < min)
-							min = path.size();
+						path_len[1] = path_x.size();
+						if (path_x.size() < min)
+							min = path_x.size();
 					}
 					if (_map.is_left_connected(_x, _y))
 					{
 						bo_temp[2] = true;
 						find_shortest_path(_x, _y - 1, dest_x, dest_y);
-						path_len[2] = path.size();
-						if (path.size() < min)
-							min = path.size();
+						path_len[2] = path_x.size();
+						if (path_x.size() < min)
+							min = path_x.size();
 					}
 					if (_map.is_right_connected(_x, _y))
 					{
 						bo_temp[3] = true;
 						find_shortest_path(_x, _y + 1, dest_x, dest_y);
-						path_len[3] = path.size();
-						if (path.size() < min)
-							min = path.size();
+						path_len[3] = path_x.size();
+						if (path_x.size() < min)
+							min = path_x.size();
 					}
 
 					//选出最短的集合
@@ -303,7 +305,7 @@ public class car
 			case status_kinds.to_passerger:
 			{
 //				System.out.println(status+" "+_x+" "+_y+" "+this.reputation);
-//				if (path.size() != 0)
+//				if (path_x.size() != 0)
 //				{
 //					_x = path.get(path_iter).getKey();
 //					_y = path.get(path_iter).getValue();
@@ -325,33 +327,33 @@ public class car
 					{
 						bo_temp[0] = true;
 						find_shortest_path(_x - 1, _y, passenger_x, passenger_y);
-						path_len[0] = path.size();
-						if (path.size() < min)
-							min = path.size();
+						path_len[0] = path_x.size();
+						if (path_x.size() < min)
+							min = path_x.size();
 					}
 					if (_map.is_down_connected(_x, _y))
 					{
 						bo_temp[1] = true;
 						find_shortest_path(_x + 1, _y, passenger_x, passenger_y);
-						path_len[1] = path.size();
-						if (path.size() < min)
-							min = path.size();
+						path_len[1] = path_x.size();
+						if (path_x.size() < min)
+							min = path_x.size();
 					}
 					if (_map.is_left_connected(_x, _y))
 					{
 						bo_temp[2] = true;
 						find_shortest_path(_x, _y - 1, passenger_x, passenger_y);
-						path_len[2] = path.size();
-						if (path.size() < min)
-							min = path.size();
+						path_len[2] = path_x.size();
+						if (path_x.size() < min)
+							min = path_x.size();
 					}
 					if (_map.is_right_connected(_x, _y))
 					{
 						bo_temp[3] = true;
 						find_shortest_path(_x, _y + 1, passenger_x, passenger_y);
-						path_len[3] = path.size();
-						if (path.size() < min)
-							min = path.size();
+						path_len[3] = path_x.size();
+						if (path_x.size() < min)
+							min = path_x.size();
 					}
 
 					//选出最短的集合
@@ -476,7 +478,7 @@ public class car
 	/**
 	 * requires: x1, y1, x2, y2的取值范围都是[0,79]
 	 * modifies: 无
-	 * effects: 找出(x1,y1)与(x2,y2)之间的最短路径，并存入path
+	 * effects: 找出(x1,y1)与(x2,y2)之间的最短路径，并存入path_x,path_y
 	 * path_iter会改变
 	 * @param x1
 	 * @param y1
@@ -489,7 +491,8 @@ public class car
 		if (x1 == x2 && y1 == y2)
 		{
 			this.path_iter = 0;
-			this.path.clear();
+			path_x.clear();
+			path_y.clear();
 			return;
 		}
 
@@ -527,23 +530,30 @@ public class car
 				//新入队的是目的地
 				if (x == x2 && y - 1 == y2)
 				{
-					LinkedList<Pair<Integer, Integer>> temp_list = new LinkedList<Pair<Integer, Integer>>();
-					temp_list.addLast(new Pair<Integer, Integer>(x2, y2));
+					LinkedList<Integer> temp_list_x=new LinkedList<Integer>();
+					LinkedList<Integer> temp_list_y=new LinkedList<Integer>();
+					temp_list_x.addLast(x2);
+					temp_list_y.addLast(y2);
 
 					int temp_x = x_prev[x2][y2];
 					int temp_y = y_prev[x2][y2];
 					while (temp_x != x1 || temp_y != y1)
 					{
-						temp_list.addLast(new Pair<Integer, Integer>(temp_x, temp_y));
+						temp_list_x.addLast(temp_x);
+						temp_list_y.addLast(temp_y);
 						int temp_temp_x;
 						temp_temp_x = x_prev[temp_x][temp_y];
 						temp_y = y_prev[temp_x][temp_y];
 						temp_x = temp_temp_x;
 					}
 					this.path_iter = 0;
-					this.path.clear();
-					while (!temp_list.isEmpty())
-						this.path.add(temp_list.removeLast());
+					path_x.clear();
+					path_y.clear();
+					while (!temp_list_x.isEmpty())
+					{
+						this.path_y.add(temp_list_y.removeLast());
+						this.path_x.add(temp_list_x.removeLast());
+					}
 					return;
 				}
 			}
@@ -557,23 +567,30 @@ public class car
 
 				if (x == x2 && y + 1 == y2)
 				{
-					LinkedList<Pair<Integer, Integer>> temp_list = new LinkedList<Pair<Integer, Integer>>();
-					temp_list.addLast(new Pair<Integer, Integer>(x2, y2));
+					LinkedList<Integer> temp_list_x=new LinkedList<Integer>();
+					LinkedList<Integer> temp_list_y=new LinkedList<Integer>();
+					temp_list_x.addLast(x2);
+					temp_list_y.addLast(y2);
 
 					int temp_x = x_prev[x2][y2];
 					int temp_y = y_prev[x2][y2];
 					while (temp_x != x1 || temp_y != y1)
 					{
-						temp_list.addLast(new Pair<Integer, Integer>(temp_x, temp_y));
+						temp_list_x.addLast(temp_x);
+						temp_list_y.addLast(temp_y);
 						int temp_temp_x;
 						temp_temp_x = x_prev[temp_x][temp_y];
 						temp_y = y_prev[temp_x][temp_y];
 						temp_x = temp_temp_x;
 					}
 					this.path_iter = 0;
-					this.path.clear();
-					while (!temp_list.isEmpty())
-						this.path.add(temp_list.removeLast());
+					path_x.clear();
+					path_y.clear();
+					while (!temp_list_x.isEmpty())
+					{
+						this.path_y.add(temp_list_y.removeLast());
+						this.path_x.add(temp_list_x.removeLast());
+					}
 					return;
 				}
 			}
@@ -588,24 +605,31 @@ public class car
 
 				if (x + 1 == x2 && y == y2)
 				{
-					LinkedList<Pair<Integer, Integer>> temp_list = new LinkedList<Pair<Integer, Integer>>();
-					temp_list.addLast(new Pair<Integer, Integer>(x2, y2));
+					LinkedList<Integer> temp_list_x=new LinkedList<Integer>();
+					LinkedList<Integer> temp_list_y=new LinkedList<Integer>();
+					temp_list_x.addLast(x2);
+					temp_list_y.addLast(y2);
 
 					int temp_x = x_prev[x2][y2];
 					int temp_y = y_prev[x2][y2];
 					while (temp_x != x1 || temp_y != y1)
 					{
 //						System.out.println(temp_x+"\t"+temp_y);
-						temp_list.addLast(new Pair<Integer, Integer>(temp_x, temp_y));
+						temp_list_x.addLast(temp_x);
+						temp_list_y.addLast(temp_y);
 						int temp_temp_x;
 						temp_temp_x = x_prev[temp_x][temp_y];
 						temp_y = y_prev[temp_x][temp_y];
 						temp_x = temp_temp_x;
 					}
 					this.path_iter = 0;
-					this.path.clear();
-					while (!temp_list.isEmpty())
-						this.path.add(temp_list.removeLast());
+					path_x.clear();
+					path_y.clear();
+					while (!temp_list_x.isEmpty())
+					{
+						this.path_y.add(temp_list_y.removeLast());
+						this.path_x.add(temp_list_x.removeLast());
+					}
 					return;
 				}
 			}
@@ -619,23 +643,30 @@ public class car
 
 				if (x - 1 == x2 && y == y2)
 				{
-					LinkedList<Pair<Integer, Integer>> temp_list = new LinkedList<Pair<Integer, Integer>>();
-					temp_list.addLast(new Pair<Integer, Integer>(x2, y2));
+					LinkedList<Integer> temp_list_x=new LinkedList<Integer>();
+					LinkedList<Integer> temp_list_y=new LinkedList<Integer>();
+					temp_list_x.addLast(x2);
+					temp_list_y.addLast(y2);
 
 					int temp_x = x_prev[x2][y2];
 					int temp_y = y_prev[x2][y2];
 					while (temp_x != x1 || temp_y != y1)
 					{
-						temp_list.addLast(new Pair<Integer, Integer>(temp_x, temp_y));
+						temp_list_x.addLast(temp_x);
+						temp_list_y.addLast(temp_y);
 						int temp_temp_x;
 						temp_temp_x = x_prev[temp_x][temp_y];
 						temp_y = y_prev[temp_x][temp_y];
 						temp_x = temp_temp_x;
 					}
 					this.path_iter = 0;
-					this.path.clear();
-					while (!temp_list.isEmpty())
-						this.path.add(temp_list.removeLast());
+					path_x.clear();
+					path_y.clear();
+					while (!temp_list_x.isEmpty())
+					{
+						this.path_y.add(temp_list_y.removeLast());
+						this.path_x.add(temp_list_x.removeLast());
+					}
 					return;
 				}
 			}
@@ -651,3 +682,4 @@ public class car
 	}
 
 }
+
