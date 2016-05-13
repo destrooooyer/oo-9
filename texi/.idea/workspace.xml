@@ -72,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/src/taxi/disp.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="280" column="31" selection-start-line="280" selection-start-column="31" selection-end-line="280" selection-end-column="31" />
+              <caret line="285" column="25" selection-start-line="285" selection-start-column="25" selection-end-line="285" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,10 +80,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_thread.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="traffic_light.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/taxi/traffic_light.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.2184615">
+              <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+              <folding>
+                <element signature="e#451#452#0" expanded="true" />
+                <element signature="e#475#476#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_thread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/taxi/test_thread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.45412844">
+            <state vertical-scroll-proportion="0.0">
               <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
               <folding />
             </state>
@@ -124,58 +137,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Arrays.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.7.0_80/src.zip!/java/util/Arrays.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2169" column="0" selection-start-line="2169" selection-start-column="0" selection-end-line="2169" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#160210#0" expanded="false" />
-                <element signature="e#2050#2051#0" expanded="false" />
-                <element signature="e#2092#2093#0" expanded="false" />
-                <element signature="e#3885#3886#0" expanded="false" />
-                <element signature="e#3927#3928#0" expanded="false" />
-                <element signature="e#5722#5723#0" expanded="false" />
-                <element signature="e#5764#5765#0" expanded="false" />
-                <element signature="e#7559#7560#0" expanded="false" />
-                <element signature="e#7601#7602#0" expanded="false" />
-                <element signature="e#9395#9396#0" expanded="false" />
-                <element signature="e#9437#9438#0" expanded="false" />
-                <element signature="e#11770#11771#0" expanded="false" />
-                <element signature="e#11812#11813#0" expanded="false" />
-                <element signature="e#14690#14691#0" expanded="false" />
-                <element signature="e#14732#14733#0" expanded="false" />
-                <element signature="e#37182#37183#0" expanded="false" />
-                <element signature="e#37239#37240#0" expanded="false" />
-                <element signature="e#40773#40774#0" expanded="false" />
-                <element signature="e#40830#40831#0" expanded="false" />
-                <element signature="e#44365#44366#0" expanded="false" />
-                <element signature="e#44422#44423#0" expanded="false" />
-                <element signature="e#47967#47968#0" expanded="false" />
-                <element signature="e#48024#48025#0" expanded="false" />
-                <element signature="e#51562#51563#0" expanded="false" />
-                <element signature="e#51619#51620#0" expanded="false" />
-                <element signature="e#55237#55238#0" expanded="false" />
-                <element signature="e#55294#55295#0" expanded="false" />
-                <element signature="e#59513#59514#0" expanded="false" />
-                <element signature="e#59570#59571#0" expanded="false" />
-                <element signature="e#64168#64169#0" expanded="false" />
-                <element signature="e#64225#64226#0" expanded="false" />
-                <element signature="e#128641#128642#0" expanded="false" />
-                <element signature="e#128682#128683#0" expanded="false" />
-                <element signature="e#129122#129123#0" expanded="false" />
-                <element signature="e#129161#129162#0" expanded="false" />
-                <element signature="e#129198#129199#0" expanded="false" />
-                <element signature="e#129238#129239#0" expanded="false" />
-                <element signature="e#129654#129655#0" expanded="false" />
-                <element signature="e#129693#129694#0" expanded="false" />
-                <element signature="e#130263#130264#0" expanded="false" />
-                <element signature="e#130310#130311#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -199,11 +160,12 @@
         <option value="$PROJECT_DIR$/src/texi/request.java" />
         <option value="$PROJECT_DIR$/src/texi/main.java" />
         <option value="$PROJECT_DIR$/src/texi/disp.java" />
-        <option value="$PROJECT_DIR$/src/map.txt" />
         <option value="$PROJECT_DIR$/src/taxi/main.java" />
         <option value="$PROJECT_DIR$/src/taxi/car.java" />
         <option value="$PROJECT_DIR$/src/taxi/map.java" />
+        <option value="$PROJECT_DIR$/src/map.txt" />
         <option value="$PROJECT_DIR$/src/taxi/disp.java" />
+        <option value="$PROJECT_DIR$/src/taxi/traffic_light.java" />
       </list>
     </option>
   </component>
@@ -374,8 +336,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -428,7 +391,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -925,11 +887,12 @@
       <workItem from="1462967397428" duration="1795000" />
       <workItem from="1463059871196" duration="2955000" />
       <workItem from="1463105024428" duration="4843000" />
+      <workItem from="1463125053142" duration="2101000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89486000" />
+    <option name="totallyTimeSpent" value="91587000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -996,16 +959,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/taxi/car.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/taxi/map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1395,49 +1348,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2169" column="0" selection-start-line="2169" selection-start-column="0" selection-end-line="2169" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#160210#0" expanded="false" />
-            <element signature="e#2050#2051#0" expanded="false" />
-            <element signature="e#2092#2093#0" expanded="false" />
-            <element signature="e#3885#3886#0" expanded="false" />
-            <element signature="e#3927#3928#0" expanded="false" />
-            <element signature="e#5722#5723#0" expanded="false" />
-            <element signature="e#5764#5765#0" expanded="false" />
-            <element signature="e#7559#7560#0" expanded="false" />
-            <element signature="e#7601#7602#0" expanded="false" />
-            <element signature="e#9395#9396#0" expanded="false" />
-            <element signature="e#9437#9438#0" expanded="false" />
-            <element signature="e#11770#11771#0" expanded="false" />
-            <element signature="e#11812#11813#0" expanded="false" />
-            <element signature="e#14690#14691#0" expanded="false" />
-            <element signature="e#14732#14733#0" expanded="false" />
-            <element signature="e#37182#37183#0" expanded="false" />
-            <element signature="e#37239#37240#0" expanded="false" />
-            <element signature="e#40773#40774#0" expanded="false" />
-            <element signature="e#40830#40831#0" expanded="false" />
-            <element signature="e#44365#44366#0" expanded="false" />
-            <element signature="e#44422#44423#0" expanded="false" />
-            <element signature="e#47967#47968#0" expanded="false" />
-            <element signature="e#48024#48025#0" expanded="false" />
-            <element signature="e#51562#51563#0" expanded="false" />
-            <element signature="e#51619#51620#0" expanded="false" />
-            <element signature="e#55237#55238#0" expanded="false" />
-            <element signature="e#55294#55295#0" expanded="false" />
-            <element signature="e#59513#59514#0" expanded="false" />
-            <element signature="e#59570#59571#0" expanded="false" />
-            <element signature="e#64168#64169#0" expanded="false" />
-            <element signature="e#64225#64226#0" expanded="false" />
-            <element signature="e#128641#128642#0" expanded="false" />
-            <element signature="e#128682#128683#0" expanded="false" />
-            <element signature="e#129122#129123#0" expanded="false" />
-            <element signature="e#129161#129162#0" expanded="false" />
-            <element signature="e#129198#129199#0" expanded="false" />
-            <element signature="e#129238#129239#0" expanded="false" />
-            <element signature="e#129654#129655#0" expanded="false" />
-            <element signature="e#129693#129694#0" expanded="false" />
-            <element signature="e#130263#130264#0" expanded="false" />
-            <element signature="e#130310#130311#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1446,6 +1357,55 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/taxi/request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+          <folding>
+            <element signature="e#362#363#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/taxi/map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="334" column="0" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/taxi/test_thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/taxi/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/taxi/car.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="326" column="37" selection-start-line="326" selection-start-column="37" selection-end-line="326" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1465,62 +1425,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/taxi/request.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-          <folding>
-            <element signature="e#362#363#0" expanded="true" />
-            <element signature="e#385#386#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/taxi/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/taxi/map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="334" column="0" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/taxi/car.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="326" column="37" selection-start-line="326" selection-start-column="37" selection-end-line="326" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/taxi/disp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="280" column="31" selection-start-line="280" selection-start-column="31" selection-end-line="280" selection-end-column="31" />
+          <caret line="285" column="25" selection-start-line="285" selection-start-column="25" selection-end-line="285" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/taxi/test_thread.java">
+    <entry file="file://$PROJECT_DIR$/src/taxi/traffic_light.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.45412844">
-          <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
-          <folding />
+        <state vertical-scroll-proportion="1.2184615">
+          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+          <folding>
+            <element signature="e#451#452#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

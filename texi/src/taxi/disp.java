@@ -15,11 +15,13 @@ public class disp implements Runnable
 	private int run_flag;
 	private LinkedList<request> requests;
 	public final car_watcher watcher = new car_watcher();
+	private traffic_light tr_light;
+	Thread T_tr_light;
 
 	/**
 	 * reauires: _map是联通的地图
 	 * modifies: 无
-	 * effects: 初始化cars, run_flag, requests, _map
+	 * effects: 初始化cars, run_flag, requests, _map, tr_light
 	 *
 	 * @param _map
 	 */
@@ -31,6 +33,10 @@ public class disp implements Runnable
 			cars[i] = new car(this._map);
 		this.run_flag = 1;
 		requests = new LinkedList<request>();
+		this.tr_light = new traffic_light();
+
+		T_tr_light = new Thread(tr_light);
+		T_tr_light.start();
 	}
 
 	/**
@@ -253,18 +259,16 @@ public class disp implements Runnable
 		{
 			try
 			{
-				Thread.sleep(100 - (t2 - t1) % 100);
-
 				//计数为3则清零
 				if (count_300ms >= 3)
 				{
 					count_300ms = 0;
-					if (light == 0)
-						light = 1;
-					else if (light == 1)
-						light = 0;
+					tr_light.set_change_flag();
 				}
 				count_300ms++;
+
+				Thread.sleep(100 - (t2 - t1) % 100);
+				light = tr_light.get_light();
 			}
 			catch (InterruptedException e)
 			{
@@ -278,7 +282,7 @@ public class disp implements Runnable
 					if (cars[i].move(light))
 						cars[i].update_status();
 				}
-//				System.out.println(cars[0].getStatus() + "\t" + cars[0].get_x() + " " + cars[0].get_y());
+//				System.out.println(cars[0].getStatus() + "\t" + cars[0].get_x() + " " + cars[0].get_y()+" "+light+" "+count_300ms);
 				//向车们广播请求
 				for (request i : requests)
 				{
@@ -300,6 +304,15 @@ public class disp implements Runnable
 				}
 			}
 			t2 = System.currentTimeMillis();
+		}
+
+		try
+		{
+			T_tr_light.join();
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
 		}
 	}
 
