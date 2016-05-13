@@ -31,6 +31,19 @@ public class map
 	/**
 	 * requires: x, y的取值范围为[0,79]
 	 * modifies: 无
+	 * effects: 返回(x,y)点是否有红绿灯
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public boolean has_light(int x,int y)
+	{
+		return this.map[x][y].has_light;
+	}
+
+	/**
+	 * requires: x, y的取值范围为[0,79]
+	 * modifies: 无
 	 * effects: 返回(x,y)是否与下方的点相连
 	 *
 	 * @param x
@@ -312,13 +325,17 @@ public class map
 	 * @param path
 	 * @return
 	 */
-	public boolean read_file(String path)
+	public boolean read_file(String path, String path_2)
 	{
 		try
 		{
 			File file_temp = new File(path);
-			if (file_temp.exists() && file_temp.isFile())
+			File file_temp_2 = new File(path_2);
+			if (file_temp.exists() && file_temp.isFile() &&
+					file_temp_2.exists() && file_temp_2.isFile())
 			{
+
+				//读地图信息--------------------------------
 				FileReader fr = new FileReader(file_temp);
 				BufferedReader br = new BufferedReader(fr);
 
@@ -357,6 +374,44 @@ public class map
 					}
 				}
 
+				//读道路交叉信息--------------------------------
+
+				fr = new FileReader(file_temp_2);
+				br = new BufferedReader(fr);
+
+				for (int i = 0; i < 80; i++)
+				{
+					str_temp = br.readLine();
+
+					if (str_temp == null)
+					{
+						System.out.println("文件中内容不符合要求");
+						return false;
+					}
+
+					String pt = "^[01]{80,80}$";
+					Matcher mt = Pattern.compile(pt).matcher(str_temp);
+					if (!mt.find())
+					{
+						System.out.println("文件中内容不符合要求");
+						return false;
+					}
+					else
+					{
+						for (int j = 0; j < 80; j++)
+						{
+							try
+							{
+//								System.out.println(this.map[i][j].getX());
+								this.map[i][j].cross_info = Integer.parseInt(str_temp.substring(j, j + 1));
+							}
+							catch (Exception e)
+							{
+//								e.printStackTrace();
+							}
+						}
+					}
+				}
 
 				return true;
 			}
@@ -429,6 +484,15 @@ public class map
 			}
 		}
 
+		//初始化红绿灯--------------------------------
+		for(int i=0;i<80;i++)
+		{
+			for(int j=0;j<80;j++)
+			{
+				this.map[i][j].set_light();
+			}
+		}
+
 		for (int i = 0; i < 80; i++)
 		{
 			for (int j = 0; j < 80; j++)
@@ -457,13 +521,17 @@ public class map
 
 	class point
 	{
-		private int x;    //原始值
+		private int x;          //原始值
+		private int cross_info; //交叉信息
 
 		//与上下左右是否联通
 		private boolean up_connected;
 		private boolean down_connected;
 		private boolean left_connected;
 		private boolean right_connected;
+
+		//是否有红绿灯
+		private boolean has_light;
 
 		/**
 		 * requires: 无
@@ -477,6 +545,8 @@ public class map
 			this.down_connected = false;
 			this.left_connected = false;
 			this.right_connected = false;
+			this.cross_info = 0;
+			this.has_light = false;
 		}
 
 		/**
@@ -495,6 +565,24 @@ public class map
 			temp.up_connected = this.up_connected;
 			temp.down_connected = this.down_connected;
 			return temp;
+		}
+
+		/**
+		 * requires: 无
+		 * modifies: 无
+		 * effects: 设置this.has_light
+		 */
+		public void set_light()
+		{
+			int flag = 0;
+			if (this.up_connected) flag++;
+			if (this.down_connected) flag++;
+			if (this.left_connected) flag++;
+			if (this.right_connected) flag++;
+			if (flag >= 3)
+				this.has_light = true;
+			else
+				this.has_light = false;
 		}
 
 	}

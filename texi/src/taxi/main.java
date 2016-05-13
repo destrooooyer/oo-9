@@ -26,7 +26,14 @@ public class main
 		else
 			System.exit(0);
 
-		if (!_map.read_file(path))
+		String path_2=new String();
+		System.out.println("请输入道路交叉方式信息所在的文件的绝对路径");
+		if (sc.hasNextLine())
+			path_2 = sc.nextLine();
+		else
+			System.exit(0);
+
+		if (!_map.read_file(path,path_2))
 		{
 			System.out.println("读取文件失败");
 			System.exit(0);

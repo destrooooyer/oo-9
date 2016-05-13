@@ -20,6 +20,7 @@ public class disp implements Runnable
 	 * reauires: _map是联通的地图
 	 * modifies: 无
 	 * effects: 初始化cars, run_flag, requests, _map
+	 *
 	 * @param _map
 	 */
 	public disp(map _map)
@@ -36,6 +37,7 @@ public class disp implements Runnable
 	 * requires: x, y的取值范围是[0,79], direct为"up", "down", "left", "right"中的一个，输入的边存在
 	 * modifies: 无
 	 * effects: 告诉_map创建新的边
+	 *
 	 * @param x
 	 * @param y
 	 * @param direct
@@ -53,6 +55,7 @@ public class disp implements Runnable
 	 * requires: x, y的取值范围是[0,79], direct为"up", "down", "left", "right"中的一个，输入的边不存在，且在地图内
 	 * modifies: 无
 	 * effects: 告诉_map摧毁已有的边
+	 *
 	 * @param x
 	 * @param y
 	 * @param direct
@@ -70,6 +73,7 @@ public class disp implements Runnable
 	 * requires: x, y, dest_x, dest_y的取值范围都是[0,79]
 	 * modifies: 无
 	 * effects: requires中添加新的请求，为新请求启动线程
+	 *
 	 * @param x
 	 * @param y
 	 * @param dest_x
@@ -116,6 +120,7 @@ public class disp implements Runnable
 	 * modifies: 无
 	 * effects: 完成输入的请求req, 在所有接过单的车里选择车完成。若没有能相应的车输出提示信息
 	 * requests中删除req, 被选中的车的状态改变。
+	 *
 	 * @param req
 	 */
 	public void complete_req(request req)
@@ -239,6 +244,9 @@ public class disp implements Runnable
 	@Override
 	public void run()
 	{
+		int count_300ms = 0;  //数300ms用的计数器
+		int light = 0;        //light=0:横向绿，纵向红; light=1:纵向绿，横向红
+
 		long t1, t2;
 		t1 = t2 = 0;
 		while (run_flag == 1)
@@ -246,6 +254,11 @@ public class disp implements Runnable
 			try
 			{
 				Thread.sleep(100 - (t2 - t1) % 100);
+
+				//计数为3则清零
+				if (count_300ms >= 3)
+					count_300ms = 0;
+				count_300ms++;
 			}
 			catch (InterruptedException e)
 			{
@@ -302,6 +315,7 @@ public class disp implements Runnable
 		 * requires: x的取值范围[0,99]
 		 * modifies: 无
 		 * effects: 返回x号出租车所处的行
+		 *
 		 * @param x
 		 * @return
 		 */
@@ -319,6 +333,7 @@ public class disp implements Runnable
 		 * requires: x的取值范围[0,99]
 		 * modifies: 无
 		 * effects: 返回x号出租车所处的列
+		 *
 		 * @param x
 		 * @return
 		 */
@@ -336,6 +351,7 @@ public class disp implements Runnable
 		 * requires: x的取值范围[0,99]
 		 * modifies: 无
 		 * effects: 返回x号出租车的信誉值
+		 *
 		 * @param x
 		 * @return
 		 */
@@ -353,6 +369,7 @@ public class disp implements Runnable
 		 * requires: x的取值范围[0,99]
 		 * modifies: 无
 		 * effects: 返回x号出租车的状态
+		 *
 		 * @param x
 		 * @return
 		 */
@@ -370,6 +387,7 @@ public class disp implements Runnable
 		 * requires: 无
 		 * modifies: 无
 		 * effects: 当前系统时间与clock_0的差值
+		 *
 		 * @return
 		 */
 		public long get_time()
