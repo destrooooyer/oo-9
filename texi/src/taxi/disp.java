@@ -247,6 +247,28 @@ public class disp implements Runnable
 		}
 	}
 
+	public boolean rep_ok()
+	{
+		if (this._map.rep_ok() &&
+				this.requests.size() <= 300 &&
+				this.tr_light.rep_ok() &&
+				this.watcher.rep_ok())
+		{
+			for (int i = 0; i < this.requests.size(); i++)
+			{
+				if (requests.get(i).rep_ok() == false)
+					return false;
+			}
+			for (int i = 0; i < 100; i++)
+			{
+				if (cars[i].rep_ok() == false)
+					return false;
+			}
+			return true;
+		}
+		return false;
+	}
+
 	@Override
 	public void run()
 	{
@@ -412,6 +434,13 @@ public class disp implements Runnable
 		public long get_time()
 		{
 			return System.currentTimeMillis() - clock_0;
+		}
+
+		public boolean rep_ok()
+		{
+			if (this.clock_0 >= 0)
+				return true;
+			return false;
 		}
 	}
 }

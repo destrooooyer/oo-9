@@ -523,6 +523,11 @@ public class map
 		}
 	}
 
+	public boolean rep_ok()
+	{
+		return true;
+	}
+
 
 	class point
 	{
@@ -588,6 +593,30 @@ public class map
 				this.has_light = true;
 			else
 				this.has_light = false;
+		}
+
+		public boolean rep_ok()
+		{
+			if (this.x >= 0 && this.x <= 3 &&
+					this.cross_info >= 0 && this.cross_info <= 1)
+			{
+				int flag = 0;
+				if (this.up_connected) flag++;
+				if (this.down_connected) flag++;
+				if (this.left_connected) flag++;
+				if (this.right_connected) flag++;
+				if (flag >= 3 && this.cross_info == 1)
+				{
+					if (this.has_light == false)
+						return false;
+				}
+				else
+				{
+					if(this.has_light)
+						return false;
+				}
+			}
+			return false;
 		}
 
 	}

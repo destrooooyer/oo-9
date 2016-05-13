@@ -102,6 +102,10 @@ public class request implements Runnable
 		this._disp = _disp;
 	}
 
+	public boolean rep_ok()
+	{
+		return  true;
+	}
 
 	@Override
 	public void run()

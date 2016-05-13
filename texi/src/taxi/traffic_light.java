@@ -44,6 +44,11 @@ public class traffic_light implements Runnable
 		}
 	}
 
+	public boolean rep_ok()
+	{
+		return true;
+	}
+
 	@Override
 	public void run()
 	{

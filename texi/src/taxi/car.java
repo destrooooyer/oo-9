@@ -722,12 +722,39 @@ public class car
 		}
 	}
 
+	public boolean rep_ok()
+	{
+		if ((this.status == status_kinds.serving ||
+				this.status == status_kinds.stopped ||
+				this.status == status_kinds.to_passerger ||
+				this.status == status_kinds.waiting) &&
+				this.reputation >= 0 &&
+				(this.stop_count >= 0 && this.stop_count <= 11) &&
+				(this.wait_count >= 0 && this.wait_count <= 201) &&
+				(this._x >= 0 && this._x <= 79) &&
+				(this._y >= 0 && this._y <= 79) &&
+				(this.dest_x >= 0 && this.dest_x <= 79) &&
+				(this.dest_y >= 0 && this.dest_y <= 79) &&
+				(this.passenger_x >= 0 && this.passenger_x <= 79)&&
+				(this.passenger_y >= 0 && this.passenger_y <= 79)&&
+				this._map.rep_ok())
+		{
+			return true;
+		}
+		else return false;
+	}
+
 	class status_kinds
 	{
 		public static final String waiting = "waiting";
 		public static final String stopped = "stopped";
 		public static final String serving = "serving";
 		public static final String to_passerger = "to-passenger";
+
+		public boolean rep_ok()
+		{
+			return true;
+		}
 	}
 
 }
