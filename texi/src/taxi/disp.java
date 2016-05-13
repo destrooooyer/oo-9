@@ -257,7 +257,13 @@ public class disp implements Runnable
 
 				//计数为3则清零
 				if (count_300ms >= 3)
+				{
 					count_300ms = 0;
+					if (light == 0)
+						light = 1;
+					else if (light == 1)
+						light = 0;
+				}
 				count_300ms++;
 			}
 			catch (InterruptedException e)
@@ -269,10 +275,10 @@ public class disp implements Runnable
 			{
 				for (int i = 0; i < 100; i++)
 				{
-					cars[i].move();
-					cars[i].update_status();
+					if (cars[i].move(light))
+						cars[i].update_status();
 				}
-//			System.out.println(cars[0].getStatus() + "\t" + cars[0].get_x() + " " + cars[0].get_y());
+//				System.out.println(cars[0].getStatus() + "\t" + cars[0].get_x() + " " + cars[0].get_y());
 				//向车们广播请求
 				for (request i : requests)
 				{

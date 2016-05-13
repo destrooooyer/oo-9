@@ -32,11 +32,12 @@ public class map
 	 * requires: x, y的取值范围为[0,79]
 	 * modifies: 无
 	 * effects: 返回(x,y)点是否有红绿灯
+	 *
 	 * @param x
 	 * @param y
 	 * @return
 	 */
-	public boolean has_light(int x,int y)
+	public boolean has_light(int x, int y)
 	{
 		return this.map[x][y].has_light;
 	}
@@ -228,6 +229,8 @@ public class map
 				return false;
 			}
 		}
+
+
 	}
 
 	/**
@@ -386,6 +389,7 @@ public class map
 					if (str_temp == null)
 					{
 						System.out.println("文件中内容不符合要求");
+						System.out.println(i);
 						return false;
 					}
 
@@ -394,6 +398,7 @@ public class map
 					if (!mt.find())
 					{
 						System.out.println("文件中内容不符合要求");
+						System.out.println(i);
 						return false;
 					}
 					else
@@ -485,9 +490,9 @@ public class map
 		}
 
 		//初始化红绿灯--------------------------------
-		for(int i=0;i<80;i++)
+		for (int i = 0; i < 80; i++)
 		{
-			for(int j=0;j<80;j++)
+			for (int j = 0; j < 80; j++)
 			{
 				this.map[i][j].set_light();
 			}
@@ -579,7 +584,7 @@ public class map
 			if (this.down_connected) flag++;
 			if (this.left_connected) flag++;
 			if (this.right_connected) flag++;
-			if (flag >= 3)
+			if (flag >= 3 && this.cross_info == 1)
 				this.has_light = true;
 			else
 				this.has_light = false;
