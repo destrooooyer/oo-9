@@ -44,9 +44,19 @@ public class traffic_light implements Runnable
 		}
 	}
 
+	/**
+	 * requires: 无
+	 * modifies: 无
+	 * effects: 返回rep_ok的结果
+	 * @return
+	 */
 	public boolean rep_ok()
 	{
-		return true;
+		if (this.light >= 0 && this.light <= 1 &&
+				this.change_flag >= 0 && this.change_flag <= 1)
+			return true;
+		else
+			return false;
 	}
 
 	@Override

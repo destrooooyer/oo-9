@@ -722,6 +722,12 @@ public class car
 		}
 	}
 
+	/**
+	 * requires: 无
+	 * modifies: 无
+	 * effects: 返回rep_ok的结果
+	 * @return
+	 */
 	public boolean rep_ok()
 	{
 		if ((this.status == status_kinds.serving ||
@@ -751,6 +757,12 @@ public class car
 		public static final String serving = "serving";
 		public static final String to_passerger = "to-passenger";
 
+		/**
+		 * requires: 无
+		 * modifies: 无
+		 * effects: 返回rep_ok的结果
+		 * @return
+		 */
 		public boolean rep_ok()
 		{
 			return true;

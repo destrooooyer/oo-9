@@ -523,9 +523,32 @@ public class map
 		}
 	}
 
+	/**
+	 * requires: 无
+	 * modifies: 无
+	 * effects: 返回rep_ok的结果
+	 * @return
+	 */
 	public boolean rep_ok()
 	{
+		for (int i = 0; i < 80; i++)
+		{
+			for (int j = 0; j < 80; j++)
+			{
+				if (this.map[i][j].rep_ok() == false)
+					return false;
+				if (this.map_backup[i][j].rep_ok() == false)
+					return false;
+				for (int k = 0; k < 4; k++)
+				{
+					if (this.traffic[i][j][k] < 0)
+						return false;
+				}
+			}
+		}
+
 		return true;
+
 	}
 
 
@@ -595,6 +618,12 @@ public class map
 				this.has_light = false;
 		}
 
+		/**
+		 * requires: 无
+		 * modifies: 无
+		 * effects: 返回rep_ok的结果
+		 * @return
+		 */
 		public boolean rep_ok()
 		{
 			if (this.x >= 0 && this.x <= 3 &&
@@ -612,9 +641,42 @@ public class map
 				}
 				else
 				{
-					if(this.has_light)
+					if (this.has_light)
 						return false;
 				}
+
+				switch (this.x)
+				{
+					case 0:
+					{
+						if(this.right_connected||this.down_connected)
+							return false;
+						break;
+					}
+					case 1:
+					{
+						if(this.right_connected==false||this.down_connected)
+							return false;
+						break;
+					}
+					case 2:
+					{
+						if(this.down_connected==false||this.right_connected)
+							return false;
+						break;
+					}
+					case 3:
+					{
+						if(this.down_connected==false||this.right_connected==false)
+							return false;
+						break;
+					}
+					default:
+						return false;
+				}
+
+				return true;
+
 			}
 			return false;
 		}
@@ -628,6 +690,17 @@ public class map
 		public static final String left = "left";
 		public static final String right = "right";
 		public static final String[] _direction = new String[]{"up", "down", "left", "right"};
+
+		/**
+		 * requires: 无
+		 * modifies: 无
+		 * effects: 返回rep_ok的结果
+		 * @return
+		 */
+		public boolean rep_ok()
+		{
+			return true;
+		}
 	}
 
 }

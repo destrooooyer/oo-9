@@ -2,7 +2,7 @@
 <html>
   <head>
       <meta charset="utf-8" />
-      <title>设计文档</title>
+      <title>readme</title>
       <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(171, 178, 191); overflow: auto; background-color: rgb(40, 44, 52); }
 .markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
 .markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
@@ -574,208 +574,190 @@ pre.editor-colors .fold-marker:after,
 }
 </style>
   </head>
-  <body class='markdown-preview' data-use-github-style><h1 id="-">设计文档</h1>
+  <body class='markdown-preview' data-use-github-style><h1 id="readme">readme</h1>
+<h3 id="-">目录</h3>
 <ul>
-<li><h3 id="-car-"><code>car</code>类</h3>
+<li><a href="#new2">第9次作业新增内容（最新）</a><ul>
+<li><a href="#bug&#x4FEE;&#x6539;&#x8BF4;&#x660E;">bug修改说明</a></li>
+<li><a href="#&#x8BBE;&#x8BA1;&#x6587;&#x6863;">设计文档</a></li>
+<li><a href="#&#x9053;&#x8DEF;&#x4EA4;&#x53C9;&#x65B9;&#x5F0F;&#x7684;&#x8F93;&#x5165;">道路交叉方式的输入</a></li>
+</ul>
+</li>
+<li><a href="#new">新增内容（第8次作业）</a><ul>
+<li><a href="#&#x65B0;&#x589E;&#x6D4B;&#x8BD5;&#x63A5;&#x53E3;">新增测试接口</a></li>
+<li><a href="#&#x8FC7;&#x7A0B;&#x89C4;&#x683C;">过程规格</a></li>
+</ul>
+</li>
+<li><a href="#last">上次内容（第7次作业）</a><ul>
+<li><a href="#&#x8F93;&#x5165;">输入</a></li>
+<li><a href="#&#x672C;&#x7A0B;&#x5E8F;&#x63D0;&#x4F9B;&#x7684;&#x6D4B;&#x8BD5;&#x63A5;&#x53E3;">本程序提供的测试接口</a></li>
+<li><a href="#&#x6D4B;&#x8BD5;">测试</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p><h3 id="new2">第9次作业新增内容（最新）</h3><br>请<strong><em>务必</em></strong>先按顺序阅读<a href="#last">第7次内容（点击跳转）</a>和<a href="#new">第8次内容（点击跳转）</a>再阅读<a href="#new2">本次内容</a></p>
+</blockquote>
+<h3 id="bug&#x4FEE;&#x6539;&#x8BF4;&#x660E;">bug修改说明</h3>
+
+<p>上次作业，使用了javafx.util.Pair，我用的idea，没有问题，但那哥们用的eclipse说编译不了，其实把jre移除再重新添加就好了，但还是被他扣了一波，我也懒得向课代表申诉了，这次把所有用到的Pair都移除了</p>
+<h3 id="&#x8BBE;&#x8BA1;&#x6587;&#x6863;">设计文档</h3>
+
 <ul>
-<li><strong>overview</strong>: car表示一个出租车，包含：<ul>
-<li><code>status</code> （状态）</li>
-<li><code>reputation</code> （声誉）</li>
-<li><code>stop_count</code> （等待计数）</li>
-<li><code>_x</code> （当前所处的行）</li>
-<li><code>_y</code> （当前所处的列）</li>
-<li><code>dest_x</code> （乘客目的地的行）</li>
-<li><code>dest_y</code> （乘客目的地的列）</li>
-<li><code>passenger_x</code> （乘客位置的行）</li>
-<li><code>passenger_y</code> （乘客位置的列）</li>
-<li><code>path_x</code> （最短路径坐标的行数的集合）</li>
-<li><code>path_y</code> （最短路径的列数的集合）</li>
-<li><code>path_iter</code> （最短路径中当前位置的指针）</li>
-<li><code>map</code> （地图）</li>
-<li><code>stopped2serving</code> （到达乘客位置后由stopped转为serving的flag）</li>
+<li>详见设计文档</li>
+<li>包含以下内容：<ul>
+<li>overview</li>
+<li>表示对象</li>
+<li>抽象函数</li>
+<li>不变式</li>
 </ul>
 </li>
-<li><strong>表示对象</strong>:<ul>
-<li><code>String status</code></li>
-<li><code>int reputation</code></li>
-<li><code>int stop_count</code></li>
-<li><code>int wait_count</code></li>
-<li><code>int _x</code></li>
-<li><code>int _y</code></li>
-<li><code>int dest_x</code></li>
-<li><code>int dest_y</code></li>
-<li><code>int passenger_x</code></li>
-<li><code>int passenger_y</code></li>
-<li><code>Vector&lt;Integer&gt; path_x</code></li>
-<li><code>Vector&lt;Integer&gt; path_y</code></li>
-<li><code>int path_iter</code></li>
-<li><code>map _map</code></li>
-<li><code>boolean stopped2serving</code></li>
+<li>过程规格在代码中每个方法前的注释中</li>
 </ul>
-</li>
-<li><strong>抽象函数</strong>: AF(c) = (<code>status</code>, <code>reputation</code>, <code>stop_count</code>, <code>wait_count</code>, <code>_x</code>, <code>_y</code>, <code>dest_x</code>, <code>dest_y</code>, <code>passenger_x</code>, <code>passenger_y</code>, <code>path_x</code>, <code>path_y</code>, <code>path_iter</code>, <code>_map</code>, <code>stopped2serving)</code>, where <code>status</code>=<code>c.status</code>, <code>reputation</code>=<code>c.reputation</code>, <code>stop_count</code>=<code>c.stop_count</code>, <code>wait_count</code>=<code>c.wait_count</code>, <code>_x</code>=<code>c._x</code>, <code>_y</code>=<code>c._y</code>, <code>dest_x</code>=<code>c.dest_x</code>, <code>dest_y</code>=<code>c.dest_y</code>, <code>passenger_x</code>=<code>c.passenger_x</code>, <code>passenger_y</code>=<code>c.passenger_y</code>, <code>path_x</code>=<code>c.path_x</code>, <code>path_y</code>=<code>c.path_y</code>, <code>path_iter</code>=<code>c.path_iter</code>, <code>_map</code>=<code>c._map</code>, <code>stopped2serving</code>=<code>c.stopped2serving</code></li>
-<li><strong>不变式</strong>: <code>c.status</code>为四种状态中的一种, <code>c.reputation</code>属于[0,+infinity], <code>c.stop_count</code>属于[0,11], <code>c.wait_count</code>属于[0,201], <code>c._x</code>属于[0,79], <code>c._y</code>属于[0,79], <code>c.dest_x</code>属于[0,79], <code>c.dest_y</code>属于[0,79], <code>c.passenger_x</code>属于[0,79], <code>c.passenger_y</code>属于[0,79],<code>c._map</code>表示合法的地图</li>
-</ul>
-</li>
-<li><h3 id="disp-">disp类</h3>
+<h3 id="&#x9053;&#x8DEF;&#x4EA4;&#x53C9;&#x65B9;&#x5F0F;&#x7684;&#x8F93;&#x5165;">道路交叉方式的输入</h3>
+
 <ul>
-<li><strong>overview</strong>: disp是调度器，负责调度汽车，分配请求，通知红绿灯改变，通知地图打开或关闭道路,包含：<ul>
-<li><code>lock</code> （锁）</li>
-<li><code>cars</code> （100辆汽车）</li>
-<li><code>_map</code> （地图）</li>
-<li><code>run_flag</code> （线程运行的flag）</li>
-<li><code>requests</code> （请求队列）</li>
-<li><code>watcher</code> （汽车各种状态的观察器）</li>
-<li><code>tr_light</code> （红绿灯）</li>
-<li><code>T_tr_light</code> （红绿灯的线程）</li>
+<li>与前两次作业相比，增加了道路交叉方式的输入，在输入完地图之后，会在控制台输出<em> &quot;请输入道路交叉方式信息所在的文件的绝对路径&quot; </em>，此时请由<strong><em>控制台</em></strong>输入文件的<strong><em>绝对路径</em></strong>。如<code>F:\temp\新建文本文档.txt</code></li>
+<li>为保留原有地图的输入方法，程序应单独增加一文件输入，定义道路交叉情况。 文件内容为 80 行字符串，每行有 80 个字符，每个字符为 0 或 1。 0 表示立体交叉， 1 表示平面交叉。理论上，两者的数量应该各占一半。 该文件与地图文件一样， <strong><em>由测试者</em></strong>保证输入文件的有效性。 交叉方式与结点的邻接关系无关，并不是十字路口才能设置立体交叉，直道也允许拥有立体交叉属性。（摘自基本法）</li>
+<li>程序运行开始，先输入地图所在文件，再输入道路交叉方式信息所在文件</li>
 </ul>
-</li>
-<li><strong>表示对象</strong>:  <ul>
-<li><code>Object lock</code></li>
-<li><code>car[] cars</code></li>
-<li><code>map _map</code></li>
-<li><code>int run_flag</code></li>
-<li><code>LinkedList&lt;request&gt; requests</code></li>
-<li><code>car_watcher watcher</code></li>
-<li><code>traffic_light tr_light</code></li>
-<li><code>Thread T_tr_light</code></li>
-</ul>
-</li>
-<li><strong>抽象函数</strong>: AF(c)=(<code>lock</code>, <code>cars</code>, <code>_map</code>, <code>run_flag</code>, <code>requests</code>, <code>watcher</code>, <code>tr_light</code>, <code>T_tr_light</code>), where <code>lock</code>=<code>c.lock</code>, <code>cars</code>=<code>c.cars</code>, <code>_map</code>=<code>c._map</code>, <code>run_flag</code>=<code>c.run_flag</code>, <code>requests</code>=<code>c.requests</code>, <code>watcher</code>=<code>c.watcher</code>, <code>tr_light</code>=<code>c.tr_light</code>, <code>T_tr_light</code>=<code>c.T_tr_light</code></li>
-<li><strong>不变式</strong>: <code>c._map</code>为合法的地图, <code>c.requests</code>的元素不超过300个且都是合法的, <code>c.cars</code>的每个元素都是合法的, <code>c.tr_light</code>是合法的红绿灯, <code>c.watcher</code>是合法的观察器</li>
-</ul>
-</li>
-<li><h3 id="car_watcher-">car_watcher类</h3>
+<hr>
+<blockquote>
+<p><h3 id="new">第8次作业新增内容</h3><br>请<strong><em>务必</em></strong>先仔细阅读<a href="#last">上次内容（点击跳转）</a>再阅读<a href="#new">本次作业新增内容</a></p>
+</blockquote>
+<h3 id="&#x65B0;&#x589E;&#x6D4B;&#x8BD5;&#x63A5;&#x53E3;">新增测试接口</h3>
+
 <ul>
-<li><strong>overview</strong>: car_watcher是disp类的内部类，用来观察车的状态，包含：<ul>
-<li><code>clock_0</code> （调度器启动的系统时刻）</li>
+<li><code>_disp.open_edge(int x,int y,String direct)</code><ul>
+<li>作用：打开已有的边，边的位置是与坐标(x,y)相连的上、下、左、右四条中的一个，由参数direct决定</li>
+<li>x, y 的取值范围为[0,79]</li>
+<li>direct 可以取的值如下：<ul>
+<li><code>up</code>：表明创建的边连接坐标(x,y)与其上方的点(x-1,y)</li>
+<li><code>down</code>：表明创建的边连接坐标(x,y)与其下方的点(x+1,y)</li>
+<li><code>left</code>：表明创建的边连接坐标(x,y)与其左边的点(x,y-1)</li>
+<li><code>right</code>：表明创建的边连接坐标(x,y)与其右边的点(x,y-1)</li>
 </ul>
 </li>
-<li><strong>表示对象</strong>:<ul>
-<li><code>long clock_0</code></li>
+<li>返回类型：void</li>
+<li>注意事项：<ul>
+<li>支持在运行过程中动态关闭或打开一些地图上<strong><em>已有的连接边</em></strong>，受影响边的总数<strong><em>由测试者</em></strong>确保不能超过 5，任意时刻需要<strong><em>由测试者</em></strong>确保地图上的<strong><em>所有的点都是连通</em></strong>的。（摘自基本法）</li>
+<li>对上一条注意事项中<strong><em>“已有的连接边”</em></strong> 的理解：即打开的边必须为地图文件信息中存在的边，也就是说，不能创建边，只能打开关闭的边。</li>
+<li>另外值得注意的是：坐标(x,y)中x代表行号，而y代表列号，因此(x,y)的上方是(x-1,y)</li>
 </ul>
 </li>
-<li><strong>抽象函数</strong>: AF(c)=(<code>clock_0</code>), where <code>clock_0</code>=<code>c.clock_0</code></li>
-<li><strong>不变式</strong>: <code>c.clock_0</code>属于[0,+infinity]</li>
 </ul>
 </li>
-<li><h3 id="map-">map类</h3>
+<li><code>_disp.close_edge(int x,int y,String direct)</code><ul>
+<li>作用：关闭已有的边，边的位置是与坐标(x,y)相连的上、下、左、右四条中的一个，由参数direct决定</li>
+<li>x, y 的取值范围为[0,79]</li>
+<li>direct 可以取的值如下：<ul>
+<li><code>up</code>：表明消除连接坐标(x,y)与其上方的点(x-1,y)的边</li>
+<li><code>down</code>：表明消除连接坐标(x,y)与其下方的点(x+1,y)的边</li>
+<li><code>left</code>：表明消除连接坐标(x,y)与其左边的点(x,y-1)的边</li>
+<li><code>right</code>：表明消除连接坐标(x,y)与其右边的点(x,y-1)的边</li>
+</ul>
+</li>
+<li>返回类型：void</li>
+<li>注意事项：同<code>_disp.open_edge(int x,int y,String direct)</code>中注意事项</li>
+</ul>
+</li>
+</ul>
+<h3 id="&#x8FC7;&#x7A0B;&#x89C4;&#x683C;">过程规格</h3>
+
 <ul>
-<li><strong>overview</strong>: map类是地图，包含：<ul>
-<li><code>map</code> （地图信息）</li>
-<li><code>map_backup</code> （地图信息的备份，用于开关道路后查原始地图信息）</li>
-<li><code>traffic</code> （每条边上的流量）</li>
+<li>在每个方法前的注释中</li>
+<li>包括三项内容：<ul>
+<li>requires: 定义了过程对输入的约束要求。</li>
+<li>modifies: 过程在执行过程中对Input的修改。</li>
+<li>effects: 定义了过程在所有未被Requires排除的输入下给出的执行效果。</li>
 </ul>
 </li>
-<li><strong>表示对象</strong>:<ul>
-<li><code>point map[][]</code></li>
-<li><code>point map_backup[][]</code></li>
-<li><code>int traffic[][][]</code></li>
 </ul>
-</li>
-<li><strong>抽象函数</strong>: AF(c)=(<code>map</code>, <code>map_backup</code>, <code>traffic</code>), where <code>map</code>=<code>c.map</code>, <code>map_backup</code>=<code>c.map_backup</code>, <code>traffic</code>=<code>c.traffic</code></li>
-<li><strong>不变式</strong>: <code>c.map</code>和<code>c.map_backup</code>中的所有点都是合法的点, <code>c.traffic</code>的每个元素都属于[0,infinity]</li>
-</ul>
-</li>
-<li><h3 id="point-">point类</h3>
+<blockquote>
+<p><a href="#new2">继续阅读第9次新增内容（点击跳转）</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<h3 id="last">第7次作业内容</h3>
+
+</blockquote>
+<h3 id="&#x8F93;&#x5165;">输入</h3>
+
 <ul>
-<li><strong>overview</strong>: point类是map的内部类，表示地图上的点，包含：<ul>
-<li><code>x</code> （输入的原始信息）</li>
-<li><code>cross_info</code> （平面交叉还是立体交叉）</li>
-<li><code>up_connected</code> （与上面的点是否相连）</li>
-<li><code>down_connected</code> （与下面的点是否相连）</li>
-<li><code>left_connected</code> （与左边的点是否相连）</li>
-<li><code>right_connected</code> （与右边的点是否相连）</li>
-<li><code>has_light</code> （是否有红绿灯）</li>
+<li>城市地图通过文件输入，文件格式为文本文件。文件内容为 80 行字符串，<br>每行有 80 个字符，每个字符为 0 到 3 之间的整数。（摘自基本法）</li>
+<li>文件需要<strong><em>由测试者</em></strong>确保地图上的所有的点都是连通的，即整个图是连通图，<br>但不能存在点与图外的点有连接，例如 (80,1) 不能是 2 或 3，(80,80) 只能是 0。（摘自基本法）</li>
+<li>程序开始运行后，会在控制台输出 <em>&quot;请输入地图数据所在的文件的绝对路径&quot;</em> ，此时请在<strong><em>控制台</em></strong>中输入包含地图数据的文件的<strong><em>绝对路径</em></strong>,如<code>F:\temp\新建文本文档.txt</code></li>
 </ul>
-</li>
-<li><strong>表示对象</strong>:<ul>
-<li><code>int x</code></li>
-<li><code>int cross_info</code></li>
-<li><code>boolean up_connected</code></li>
-<li><code>boolean down_connected</code></li>
-<li><code>boolean left_connected</code></li>
-<li><code>boolean right_connected</code></li>
-<li><code>boolean has_light</code></li>
-</ul>
-</li>
-<li><strong>抽象函数</strong>: AF(c)=(<code>x</code>, <code>cross_info</code>, <code>up_connected</code>, <code>down_connected</code>, <code>left_connected</code>, <code>right_connected</code>, <code>has_light</code>), where <code>x</code>=<code>c.x</code>, <code>cross_info</code>=<code>c.cross_info</code>, <code>up_connected</code>=<code>c.up_connected</code>, <code>down_connected</code>=<code>c.down_connected</code>, <code>left_connected</code>=<code>c.left_connected</code>, <code>right_connected</code>=<code>c.right_connected</code>, <code>has_light</code>=<code>c.has_light</code></li>
-<li><strong>不变式</strong>: <code>c.x</code>属于[0,3], <code>c.cross_info</code>属于[0,1], <code>c.has_light</code>当该点的<code>c.cross_info</code>为1且周围与其相连的点的数量大于等于3的时候为true否则为false,  <code>c.down_connected</code>为true当且<code>c.x</code>为3或2, <code>c.right_connected</code>为true当且仅当<code>c.x</code>为3或1</li>
-</ul>
-</li>
-<li><h3 id="direction-">direction类</h3>
+<h3 id="&#x672C;&#x7A0B;&#x5E8F;&#x63D0;&#x4F9B;&#x7684;&#x6D4B;&#x8BD5;&#x63A5;&#x53E3;">本程序提供的测试接口</h3>
+
 <ul>
-<li><strong>overview</strong>: direction类是map类的内部类，包含各种方向的定义：<ul>
-<li><code>up</code> （方向上）</li>
-<li><code>down</code> （方向下）</li>
-<li><code>left</code> （方向左）</li>
-<li><code>right</code> （方向右）</li>
-<li><code>_direction</code> （所有方向的集合）</li>
-</ul>
-</li>
-<li><strong>表示对象</strong>:<ul>
-<li><code>static final String up</code></li>
-<li><code>static final String down</code></li>
-<li><code>static final String left</code></li>
-<li><code>static final String right</code></li>
-<li><code>static final String[] _direction</code></li>
-</ul>
-</li>
-<li><strong>抽象函数</strong>: AF(c)=(<code>up</code>, <code>down</code>, <code>left</code>, <code>right</code>, <code>_direction</code>), where <code>up</code>=<code>c.up</code>, <code>down</code>=<code>c.down</code>, <code>left</code>=<code>c.left</code>, <code>right</code>=<code>c.right</code>, <code>_direction</code>=<code>c._direction</code></li>
-<li><strong>不变式</strong>: 无，所有属性都是static final</li>
-</ul>
-</li>
-<li><h3 id="request-">request类</h3>
+<li><code>_disp</code>为在<code>main</code>函数中创建的<code>disp类</code>的一个对象。</li>
+<li><p>测试时，请调用<code>_disp</code>的如下方法：</p>
 <ul>
-<li><strong>overview</strong>: request类表示，包含各种方向的定义：<ul>
-<li><code>_x</code> （请求发出左边的行）</li>
-<li><code>_y</code> （请求发出的坐标的列）</li>
-<li><code>dest_x</code> （请求目的地的坐标的行）</li>
-<li><code>dest_y</code> （请求目的地的坐标的列）</li>
-<li><code>_disp</code> （调度器）</li>
-<li><code>bo_car</code> （用来记录所有抢过单的汽车）</li>
+<li><code>_disp.watcher.get_reputation(int x)</code><ul>
+<li>作用：获取x号出租车的信誉值</li>
+<li>返回类型为int</li>
+<li>x的取值范围为[0,99]</li>
 </ul>
 </li>
-<li><strong>表示对象</strong>:<ul>
-<li><code>int _x</code></li>
-<li><code>int _y</code></li>
-<li><code>int dest_x</code></li>
-<li><code>int dest_y</code></li>
-<li><code>disp _disp</code></li>
-<li><code>boolean[] bo_car</code></li>
+<li><code>_disp.watcher.get_status(int x)</code><ul>
+<li>作用：获得x号出租车的运行状态</li>
+<li>返回类型为String</li>
+<li>x的取值范围为[0,99]</li>
+<li>车运行的状态有如下四种：<ul>
+<li><code>waiting</code>：等待服务</li>
+<li><code>stopped</code>：停止运行</li>
+<li><code>serving</code>：正在服务</li>
+<li><code>to-passenger</code>：即将服务</li>
 </ul>
 </li>
-<li><strong>抽象函数</strong>: AF(c)=(<code>_x</code>, <code>_y</code>, <code>dest_x</code>, <code>dest_y</code>, <code>_disp</code>, <code>bo_car</code>), where <code>_x</code>=<code>c._x</code>, <code>_y</code>=<code>c._y</code>, <code>dest_x</code>=<code>c.dest_x</code>, <code>dest_y</code>=<code>c.dest_y</code>, <code>_disp</code>=<code>c._disp</code>, <code>bo_car</code>=<code>c.bo_car</code></li>
-<li><strong>不变式</strong>: <code>c._x</code>属于[0,79], <code>c._y</code>属于[0,79], <code>c.dest_x</code>属于[0,79], <code>c.dest_y</code>属于[0,79], <code>c._disp</code>是合法的调度器</li>
 </ul>
 </li>
-<li><h3 id="traffic_light-">traffic_light类</h3>
+<li><code>_disp.watcher.get_x(int x)</code><ul>
+<li>作用：获得x号出租车在地图中所处的行号</li>
+<li>返回类型为int</li>
+<li>x的取值范围为[0,99]</li>
+</ul>
+</li>
+<li><code>_disp.watcher.get_y(int x)</code><ul>
+<li>作用：获得x号出租车在地图中所处的列号</li>
+<li>返回类型为int</li>
+<li>x的取值范围为[0,99]</li>
+</ul>
+</li>
+<li><code>_disp.watcher.get_time(int x)</code><ul>
+<li>作用：获得当前时间（当前系统时间-<code>_disp</code>这个对象被创建时的系统时间）</li>
+<li>返回类型为long</li>
+<li>x的取值范围为[0,99]</li>
+</ul>
+</li>
+<li><p><code>_disp.add_request(int x, int y, int dest_x, int dest_y)</code></p>
 <ul>
-<li><strong>overview</strong>: traffic_light类是红绿灯，包括：<ul>
-<li><code>light</code> （横向的红绿灯是红的还是纵向的红绿灯是红的）</li>
-<li><code>run_flag</code> （线程运行的flag）</li>
-<li><code>change_flag</code> （红绿灯改变的flag）</li>
+<li>作用：添加新的乘客请求（从(x,y)前往(dest_x,dest_y)的请求）</li>
+<li>返回类型为void</li>
+<li>x, y, dest_x, dest_y 的取值范围均为[0,79]</li>
+<li><p>若请求无法响应，则会在控制台输出类似如下内容：</p>
+<blockquote>
+<p>请求  (22,5) =&gt; (43,27) 没有车能够响应</p>
+</blockquote>
+</li>
+<li><p>注意：由于指导书中要求请求队列容量只需不少于300，因此，一旦同时运行的请求数超过300，程序将从控制台输出提示信息。此后，虽然程序继续运行，但不对发生的错误负责</p>
+</li>
 </ul>
 </li>
-<li><strong>表示对象</strong>:<ul>
-<li><code>int light</code></li>
-<li><code>int run_flag</code></li>
-<li><code>int change_flag</code></li>
 </ul>
 </li>
-<li><strong>抽象函数</strong>: AF(c)=(<code>light</code>, <code>run_flag</code>, <code>change_flag</code>), where <code>light</code>=<code>c.light</code>, <code>run_flag</code>=<code>c.run_flag</code>, <code>change_flag</code>=<code>c.change_flag</code></li>
-<li><strong>不变式</strong>: <code>c.light</code>属于[0,1], <code>c.change_flag</code>属于[0,1]</li>
+<li><strong><em>注意：测试时请一定要调用_disp这个对象的测试接口，而不要创建disp类的其他对象。在main函数作用域以外测试的话需要将_disp作为参数传递过去</em></strong></li>
 </ul>
-</li>
-<li><h3 id="main-">main类</h3>
+<h3 id="&#x6D4B;&#x8BD5;">测试</h3>
+
 <ul>
-<li><strong>overview</strong>: main类</li>
-<li><strong>表示对象</strong>: 无</li>
-<li><strong>抽象函数</strong>: 无</li>
-<li><strong>不变式</strong>: 无</li>
+<li>工程中已经添加了测试代码的示例以供参考，包括<code>test_thread</code>类以及<code>main</code>函数中46~47行，建好工程直接运行就可以看到测试示例的结果。</li>
+<li>建议直接修改<code>test_thread</code>类的<code>run</code>方法进行测试。（注释掉已有代码，添加新的测试代码）</li>
+<li>当然，要是完全重写测试线程我也是兹词的，但要记得将<code>main</code>函数中46~47行注释掉，在相同位置启动测试线程。注意一定要像示例的测试代码那样先在<code>main</code>函数中将<code>_disp</code>作为参数传给测试线程，再在测试线程中调用<code>_disp</code>的相应方法进行测试，因为很重要所以又说了一遍。</li>
 </ul>
-</li>
-<li><h3 id="test_thread-">test_thread类: 该类由测试者编写</h3>
-</li>
-</ul></body>
+<blockquote>
+<p><a href="#new">继续阅读第8次新增内容（点击跳转）</a></p>
+</blockquote></body>
 </html>

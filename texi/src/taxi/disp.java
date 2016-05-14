@@ -247,6 +247,12 @@ public class disp implements Runnable
 		}
 	}
 
+	/**
+	 * requires: 无
+	 * modifies: 无
+	 * effects: 返回rep_ok的结果
+	 * @return
+	 */
 	public boolean rep_ok()
 	{
 		if (this._map.rep_ok() &&
@@ -436,6 +442,12 @@ public class disp implements Runnable
 			return System.currentTimeMillis() - clock_0;
 		}
 
+		/**
+		 * requires: 无
+		 * modifies: 无
+		 * effects: 返回rep_ok的结果
+		 * @return
+		 */
 		public boolean rep_ok()
 		{
 			if (this.clock_0 >= 0)

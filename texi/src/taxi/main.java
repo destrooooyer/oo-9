@@ -95,4 +95,15 @@ public class main
 //			}
 //		}
 	}
+
+	/**
+	 * requires: 无
+	 * modifies: 无
+	 * effects: 返回rep_ok的结果
+	 * @return
+	 */
+	public boolean rep_ok()
+	{
+		return true;
+	}
 }

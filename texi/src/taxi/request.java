@@ -16,6 +16,7 @@ public class request implements Runnable
 	 * requires: x的取值范围是[0,99]
 	 * modifies: 无
 	 * effects: 返回x号车是否抢过单
+	 *
 	 * @param x
 	 * @return
 	 */
@@ -28,6 +29,7 @@ public class request implements Runnable
 	 * requires: x的取值范围是[0,99]
 	 * modifies: 无
 	 * effects: 设定x号车抢过单
+	 *
 	 * @param x
 	 * @return
 	 */
@@ -40,6 +42,7 @@ public class request implements Runnable
 	 * requires: 无
 	 * modifies: 无
 	 * effects: 返回发出请求坐标的行号
+	 *
 	 * @return
 	 */
 	public int get_x()
@@ -51,6 +54,7 @@ public class request implements Runnable
 	 * requires: 无
 	 * modifies: 无
 	 * effects: 返回发出请求坐标的列号
+	 *
 	 * @return
 	 */
 	public int get_y()
@@ -62,6 +66,7 @@ public class request implements Runnable
 	 * requires: 无
 	 * modifies: 无
 	 * effects: 返回请求目的地坐标的行号
+	 *
 	 * @return
 	 */
 	public int getDest_x()
@@ -73,6 +78,7 @@ public class request implements Runnable
 	 * requires: 无
 	 * modifies: 无
 	 * effects: 返回请求目的地坐标的列号
+	 *
 	 * @return
 	 */
 	public int getDest_y()
@@ -84,6 +90,7 @@ public class request implements Runnable
 	 * requires: _x, _y, dest_x, dest_y的取值范围为[0,79], _disp是main中创建的调度器
 	 * modifies: 无
 	 * effects: 对各个变量进行初始化
+	 *
 	 * @param _x
 	 * @param _y
 	 * @param dest_x
@@ -102,9 +109,22 @@ public class request implements Runnable
 		this._disp = _disp;
 	}
 
+	/**
+	 * requires: 无
+	 * modifies: 无
+	 * effects: 返回rep_ok的结果
+	 * @return
+	 */
 	public boolean rep_ok()
 	{
-		return  true;
+		if (this._x >= 0 && this._x <= 79 &&
+				this._y >= 0 && this._y <= 79 &&
+				this.dest_x >= 0 && this.dest_x <= 79 &&
+				this.dest_y >= 0 && this.dest_y <= 79 &&
+				this._disp.rep_ok())
+			return true;
+		else
+			return false;
 	}
 
 	@Override
